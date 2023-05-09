@@ -1,8 +1,0 @@
-.test {
-  border: 2px solid red;
-  transition: 0.5s all;
-}
-
-.active {
-  background-color: blue;
-}

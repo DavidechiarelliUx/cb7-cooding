@@ -1,0 +1,86 @@
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pizza-card,
+.todo-item-container {
+  width: 200px;
+  padding: 20px;
+  margin: 20px;
+  background-color: #e84855;
+  color: floralwhite;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.pizza-card:hover,
+.todo-item-container:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+  background-color: #2b3a67;
+}
+
+.pizza-price {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.todo-list {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.todo-list h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.todo-list .input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.todo-list input[type="text"] {
+  flex: 1;
+  border: 2px solid red;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.todo-list button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #e84855;
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.todo-list button:hover {
+  background-color: #2b3a67;
+}
+
+.todo-item-container {
+  margin: 20px auto;
+}

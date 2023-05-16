@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecommerce Cb7</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" type="module"></script>
+    <script src="./utils/fn.js" type="module"></script>
+    <script src="./product.js" type="module"></script>
+  </head>
+  <body>
+    <div class="container">
+      <p class="offer-message">
+        Offerta speciale: Sconti del 50% su tutte le sale per questa settimana!
+      </p>
+    </div>
+    <div class="navbar">
+     
+      <ul class="navbar__links">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">Product</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+      <form class="navbar__search">
+        <input
+          type="text"
+          placeholder="Search Product"
+          minlength="3"
+          required
+        />
+      </form>
+      <ul class="navbar__user">
+        <li>👤 Account</li>
+        <li>🛒 Cart</li>
+      </ul>
+    </div>
+    <!-- hero -->
+    <div class="hero">
+      <div class="hero__content">
+        <h1>Exclusive Deals of Furniture Collection</h1>
+        <p>Explore different categories. Find the best deals.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="hero__image">
+        <img src="./assets/hero img.png" alt="hero image" />
+      </div>
+    </div>
+    <!-- filter section -->
+    <div class="filter-section">
+      <h2>Explore by categories</h2>
+      <button class="filter-toggle" id="filter-toggle">
+        Casa <i class="fas fa-angle-down"></i>
+      </button>
+      <div class="filter-options" id="filter-options">
+        <label
+          ><input type="checkbox" name="category" value="camera" /> Camera da
+          letto</label
+        >
+        <label
+          ><input type="checkbox" name="category" value="cucina" />
+          Cucina</label
+        >
+        <label
+          ><input type="checkbox" name="category" value="bagno" /> Bagno</label
+        >
+      </div>
+    </div>
+    <!-- product -->
+   
+    <div class="product">
+      <div id="root"></div>
+      
+    </div>
+  </body>
+</html>

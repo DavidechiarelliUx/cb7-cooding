@@ -1,0 +1,81 @@
+.followBar {
+    padding: 20px 12px;
+    border-radius: 30px;
+    margin-top: 50px;
+    margin-left: 20px;
+    position: sticky;
+    
+}
+
+
+.follow {
+    background-color:#F6F9F9;
+    top: 20px;
+    border-radius: 13px;
+}
+
+.follow__title {
+    padding: 20px;
+}
+
+.follow__item {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.follow__item:hover {
+    background-color: var(--color-hover);
+} 
+
+.follow__image {
+    padding-bottom: 35px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.follow__image img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.follow__user {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 58px);
+}
+
+.follow__name {
+    font-weight: 700;
+}
+
+.follow__username {
+    color:darkgrey;
+}
+
+.follow__button {
+    margin-left: 80px;
+    background-color:#0F141A;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    
+    border-radius: 26px;
+    color: var(--color-text);
+}
+
+@media (max-width: 950px) {
+    .followBar {
+      display: none;
+    }
+  }
+  

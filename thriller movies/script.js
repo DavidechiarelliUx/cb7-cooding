@@ -3,19 +3,81 @@ import { cE, qS } from './utils/fn.js';
 import {navToggle, links } from './utils/nav.js';
 
 const rootEl = qS("#root");
-const headerEl = cE('header');
 const main = qS('#main'); 
 
 getMovies(API_URL);
+const movies = [];
+let currentMovieIndex = 0;
 
 function getMovies(url) {
   fetch(url)
     .then(res => res.json())
     .then(data => {
+      movies.push(...data.results);
+      showBannerSection();
       showMovies(data.results);
     });
 }
 
+function showBannerSection() {
+  const movie = movies[currentMovieIndex];
+  const bannerSectionEl = document.getElementById('banner-section');
+  bannerSectionEl.classList.add('banner-image');
+  bannerSectionEl.style.backgroundImage = `url(${IMG_URL}${movie.backdrop_path})`;
+
+  const bannerContentEl = document.createElement('div');
+  bannerContentEl.classList.add('banner-content');
+
+  const bannerTitleEl = document.createElement('h2');
+  bannerTitleEl.classList.add('banner-title');
+  bannerTitleEl.textContent = movie.title;
+
+  const bannerDescriptionEl = document.createElement('p');
+  bannerDescriptionEl.classList.add('banner-description');
+  bannerDescriptionEl.textContent = movie.overview;
+
+  const releaseDate = new Date(movie.release_date);
+  const releaseYear = releaseDate.getFullYear();
+  const bannerReleaseEl = document.createElement('p');
+  bannerReleaseEl.classList.add('banner-release');
+  bannerReleaseEl.textContent = `Release date: ${releaseYear}`;
+
+  const rating = movie.vote_average;
+  const ratingRounded = Math.round(rating / 2);
+  const bannerRatingEl = document.createElement('div');
+  bannerRatingEl.classList.add('banner-rating');
+  for (let i = 0; i < 5; i++) {
+    const starEl = document.createElement('span');
+    if (i < ratingRounded) {
+      starEl.innerHTML = '&#9733;';
+    } else {
+      starEl.innerHTML = '&#9734;';
+    }
+    bannerRatingEl.appendChild(starEl);
+  }
+
+  const bannerButtonEl = document.createElement('button');
+  bannerButtonEl.classList.add('banner-button');
+  bannerButtonEl.textContent = 'Play trailer';
+  bannerButtonEl.addEventListener('click', () => {
+    window.location.href = `pages/description-movie.html?id=${movie.id}`;
+  });
+
+  bannerContentEl.appendChild(bannerTitleEl);
+  bannerContentEl.appendChild(bannerDescriptionEl);
+  bannerContentEl.appendChild(bannerReleaseEl);
+  bannerContentEl.appendChild(bannerRatingEl);
+  bannerContentEl.appendChild(bannerButtonEl);
+
+  bannerSectionEl.innerHTML = '';
+  bannerSectionEl.appendChild(bannerContentEl);
+
+  currentMovieIndex = (currentMovieIndex + 1) % movies.length;
+}
+
+// Aggiungi questo codice per far scorrere la banner section ogni 5 secondi
+setInterval(showBannerSection, 5000);
+// fine banner section
 function showMovies(data) {
   while (main.firstChild) {
     main.removeChild(main.firstChild);
